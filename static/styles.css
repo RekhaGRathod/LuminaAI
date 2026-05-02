@@ -1,0 +1,402 @@
+/* Base Styles */
+:root {
+    --primary-color: #4a6cfa;
+    --primary-light: #eef2ff;
+    --secondary-color: #ff6b6b;
+    --physics-color: #ffd166;
+    --chemistry-color: #06d6a0;
+    --biology-color: #118ab2;
+    --dark-blue: #073b4c;
+    --light-gray: #f8f9fa;
+    --medium-gray: #e9ecef;
+    --dark-gray: #495057;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #f5f7ff;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 15px;
+}
+
+.logo h1 {
+    color: var(--primary-color);
+    font-size: 2.2rem;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+    font-style: italic;
+}
+
+/* Screen Management */
+.screen {
+    display: none;
+    animation: fadeIn 0.5s;
+}
+
+.screen.active {
+    display: block;
+}
+
+.screen-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.screen-header h2 {
+    margin-left: 15px;
+    color: var(--dark-blue);
+}
+
+/* Subject Cards */
+.subject-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    cursor: pointer;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.subject-card[data-subject="physics"] {
+    border-top: 5px solid var(--physics-color);
+}
+
+.subject-card[data-subject="chemistry"] {
+    border-top: 5px solid var(--chemistry-color);
+}
+
+.subject-card[data-subject="biology"] {
+    border-top: 5px solid var(--biology-color);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.subject-card[data-subject="physics"] .card-icon {
+    color: var(--physics-color);
+}
+
+.subject-card[data-subject="chemistry"] .card-icon {
+    color: var(--chemistry-color);
+}
+
+.subject-card[data-subject="biology"] .card-icon {
+    color: var(--biology-color);
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: #3a5deb;
+}
+
+.back-btn {
+    background-color: var(--light-gray);
+    color: var(--dark-gray);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.back-btn i {
+    margin-right: 5px;
+}
+
+.back-btn:hover {
+    background-color: var(--medium-gray);
+}
+
+/* Chapters and Topics List */
+.chapters-container, .topics-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.chapter-card, .topic-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.chapter-card:hover, .topic-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.chapter-card h3, .topic-card h3 {
+    margin-bottom: 8px;
+    color: var(--dark-blue);
+}
+
+.chapter-card p, .topic-card p {
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+}
+
+/* Questions Styling */
+.question-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    margin-bottom: 25px;
+}
+
+.question-text {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.question-options {
+    margin-bottom: 20px;
+}
+
+.option {
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background-color: var(--light-gray);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.option:hover {
+    background-color: var(--medium-gray);
+}
+
+.option.selected {
+    background-color: var(--primary-light);
+    border: 1px solid var(--primary-color);
+}
+
+.question-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+/* Solution Screen */
+.solution-container {
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+}
+
+.question-display {
+    padding: 20px;
+    background-color: var(--light-gray);
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+
+.solution-steps {
+    padding: 0 15px 25px;
+    border-bottom: 1px solid var(--medium-gray);
+    margin-bottom: 25px;
+}
+
+.solution-step {
+    margin-bottom: 15px;
+}
+
+.step-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+}
+
+/* Ask Doubt Section */
+.ask-doubt-container {
+    margin-top: 25px;
+}
+
+.ask-doubt-container h3 {
+    margin-bottom: 15px;
+    color: var(--dark-blue);
+}
+
+textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--medium-gray);
+    border-radius: 8px;
+    resize: vertical;
+    min-height: 100px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.doubt-response {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: var(--primary-light);
+    border-radius: 8px;
+    display: none;
+}
+
+/* Custom Questions */
+.custom-question-section {
+    background-color: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+}
+
+.custom-question-section h3 {
+    margin-bottom: 15px;
+    color: var(--dark-blue);
+}
+
+.custom-input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#custom-question-input {
+    margin-bottom: 15px;
+}
+
+#custom-topic-display {
+    margin-left: auto;
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+}
+
+#custom-topic-display span {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Loading Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    display: none;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid var(--light-gray);
+    border-top: 6px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .subject-cards, .chapters-container, .topics-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .logo h1 {
+        font-size: 1.8rem;
+    }
+    
+    .tagline {
+        font-size: 1rem;
+    }
+}

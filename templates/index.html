@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET Prep Companion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="NEET Prep Companion Logo">
+                <h1>LuminaAI</h1>
+            </div>
+            <p class="tagline">Master every concept, conquer every question — your NEET success starts here!</p>
+        </header>
+
+        <main id="app-container">
+            <!-- Home Screen -->
+            <section id="home-screen" class="screen active">
+                <h2>Select a Subject</h2>
+                <div class="subject-cards">
+                    <div class="card subject-card" data-subject="physics">
+                        <div class="card-icon"><i class="fas fa-atom"></i></div>
+                        <h3>Physics</h3>
+                    </div>
+                    <div class="card subject-card" data-subject="chemistry">
+                        <div class="card-icon"><i class="fas fa-flask"></i></div>
+                        <h3>Chemistry</h3>
+                    </div>
+                    <div class="card subject-card" data-subject="biology">
+                        <div class="card-icon"><i class="fas fa-dna"></i></div>
+                        <h3>Biology</h3>
+                    </div>
+                </div>
+                <div class="custom-question-section">
+                    <h3>Ask Custom Questions</h3>
+                    <div class="custom-input-container">
+                        <textarea id="custom-question-input" placeholder="Enter your specific topic or question..."></textarea>
+                        <button id="generate-custom-questions" class="btn primary-btn">Generate Questions</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chapters Screen -->
+            <section id="chapters-screen" class="screen">
+                <div class="screen-header">
+                    <button class="back-btn" data-target="home-screen"><i class="fas fa-arrow-left"></i> Back</button>
+                    <h2 id="subject-title">Subject Chapters</h2>
+                </div>
+                <div class="chapters-container" id="chapters-list">
+                    <!-- Chapters will be loaded dynamically -->
+                </div>
+            </section>
+
+            <!-- Topics Screen -->
+            <section id="topics-screen" class="screen">
+                <div class="screen-header">
+                    <button class="back-btn" data-target="chapters-screen"><i class="fas fa-arrow-left"></i> Back</button>
+                    <h2 id="chapter-title">Chapter Topics</h2>
+                </div>
+                <div class="topics-container" id="topics-list">
+                    <!-- Topics will be loaded dynamically -->
+                </div>
+            </section>
+
+            <!-- Questions Screen -->
+            <section id="questions-screen" class="screen">
+                <div class="screen-header">
+                    <button class="back-btn" data-target="topics-screen"><i class="fas fa-arrow-left"></i> Back</button>
+                    <h2 id="topic-title">Practice Questions</h2>
+                </div>
+                <div class="questions-container" id="questions-list">
+                    <!-- Questions will be loaded dynamically -->
+                </div>
+                <div class="more-questions">
+                    <button id="load-more-questions" class="btn primary-btn">Load More Questions</button>
+                </div>
+            </section>
+
+            <!-- Solution Screen -->
+            <section id="solution-screen" class="screen">
+                <div class="screen-header">
+                    <button class="back-btn" data-target="questions-screen"><i class="fas fa-arrow-left"></i> Back</button>
+                    <h2>Detailed Solution</h2>
+                </div>
+                <div class="solution-container">
+                    <div class="question-display" id="current-question"></div>
+                    <div class="solution-steps" id="solution-steps"></div>
+                    <div class="ask-doubt-container">
+                        <h3>Still have doubts?</h3>
+                        <textarea id="doubt-input" placeholder="Ask your doubt about this solution..."></textarea>
+                        <button id="submit-doubt" class="btn primary-btn">Get Clarification</button>
+                        <div id="doubt-response" class="doubt-response"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Custom Questions Screen -->
+            <section id="custom-questions-screen" class="screen">
+                <div class="screen-header">
+                    <button class="back-btn" data-target="home-screen"><i class="fas fa-arrow-left"></i> Back</button>
+                    <h2>Custom Generated Questions</h2>
+                    <p id="custom-topic-display">Topic: <span></span></p>
+                </div>
+                <div class="questions-container" id="custom-questions-list">
+                    <!-- Custom questions will be loaded dynamically -->
+                </div>
+                <div class="more-questions">
+                    <button id="load-more-custom-questions" class="btn primary-btn">Load More Questions</button>
+                </div>
+            </section>
+        </main>
+
+        <div class="loading-overlay" id="loading-overlay">
+            <div class="spinner"></div>
+            <p>Generating high-quality content...</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
